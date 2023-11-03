@@ -13,22 +13,22 @@ const Banner = () => {
    return (
       <div>
          <Carousel>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img1} />
             </div>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img2} />
             </div>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img3} />
             </div>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img4} />
             </div>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img5} />
             </div>
-            <div className="h-screen">
+            <div className="md:h-screen">
                <img src={img6} />
             </div>
          </Carousel>

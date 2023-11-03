@@ -29,7 +29,9 @@ const PopulerMenu = () => {
             ></MenuItem>)
          }
         </div>
-
+        <div className='flex justify-center my-8'>
+        <button className="btn hover:bg-gray-900 hover:text-white border-b-2 border-b-black font-sans uppercase text-black">view full menu</button>
+        </div>
       </section>
    );
 };

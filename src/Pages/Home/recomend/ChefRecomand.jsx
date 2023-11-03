@@ -11,8 +11,8 @@ const ChefRecomand = () => {
             subHeading={'CHEF RECOMMENDS'}
          ></SectionTitle>
 
-         <div className='flex  justify-around'>
-            <div className="card w-96 bg-base-100 rounded-none shadow-xl">
+         <div className=' md:flex justify-around'>
+            <div className="card mb-4 md:w-96 bg-base-100 rounded-none shadow-xl">
                <figure>
                   <img src={img} alt="salad" />
                </figure>
@@ -24,7 +24,7 @@ const ChefRecomand = () => {
                   </div>
                </div>
             </div>
-            <div className="card w-96 bg-base-100 rounded-none shadow-xl">
+            <div className="card mb-4 md:w-96 bg-base-100 rounded-none shadow-xl">
                <figure>
                   <img src={img} alt="salad" />
                </figure>
@@ -36,7 +36,7 @@ const ChefRecomand = () => {
                   </div>
                </div>
             </div>
-            <div className="card w-96 bg-base-100 rounded-none shadow-xl">
+            <div className="card md:w-96 bg-base-100 rounded-none shadow-xl">
                <figure>
                   <img src={img} alt="salad" />
                </figure>
