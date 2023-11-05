@@ -7,10 +7,14 @@ import Number from '../Number/Number';
 import ChefRecomand from '../recomend/ChefRecomand';
 import Featured from '../Featured/Featured';
 import Testimonial from '../Testimonial/Testimonial';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
    return (
       <div>
+         <Helmet>
+            <title className='uppercase'>MOM'S YUMMY</title>
+         </Helmet>
        <Banner />
        <Category />
        <InfoCard />
