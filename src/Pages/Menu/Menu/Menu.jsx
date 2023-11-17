@@ -23,7 +23,7 @@ const Menu = () => {
    return (
       <div>
          <Helmet>
-            <title className='uppercase'>MY | MENU</title>
+            <title className='uppercase'>M-Y | MENU</title>
          </Helmet>
 
          <Cover img={img} title='OUR menu' heading='Would you like to try a dish?' />
@@ -45,8 +45,8 @@ const Menu = () => {
             <MenuCategory
                item={Dessert}
                img={dessert}
-               title={'desserts'}
-               heading={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
+               title={'dessert'}
+               heading={'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}
             ></MenuCategory>
          </section>
 

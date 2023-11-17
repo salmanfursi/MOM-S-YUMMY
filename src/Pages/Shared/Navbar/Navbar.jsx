@@ -1,12 +1,33 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-const navOption = <>
-	<li><Link to='/'>Home</Link></li>
-	<li><Link to='/menu'>Our Menu</Link></li>
-	<li><Link to='/order'>Order</Link></li>
+import { AuthContext } from '../../../Providers/AuthProvider';
 
-</>
 const Navbar = () => {
+	const {user,logOut}=useContext(AuthContext);
+ 
+	const handleLogOut=()=>{
+		logOut()
+		.then(()=>{})
+		.then(error =>{
+			console.log(error);
+		})
+	}
+
+const navOption = <div className='flex flex-col md:flex-row md:gap-4'>
+	<a><Link to='/'>Home</Link></a>
+	<a><Link to='/menu'>Our Menu</Link></a>
+	<a><Link to='/order/salad'>Order</Link></a>
+	<a><Link to='/secret'>Secret</Link></a>
+
+	{
+		user ? 
+		<button onClick={handleLogOut}>Log Out</button>
+		 : 
+		 <a><Link to='/login'>Login</Link></a> 
+	}
+</div>
+
 	return (
 		<>
 			<div className="navbar bg-black text-white fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto">
@@ -20,17 +41,17 @@ const Navbar = () => {
 						</ul>
 					</div>
 					<a>
-						<h1 className='border-black font-bold font-serif text-black rounded-e-lg border-b-0 bg-orange-600 border-2 px-2'>Mom's Yummy</h1>
-						<p className='border-orange-600 font-serif text-center bg-black text-white rounded-s-lg  border-t-0 border-2 px-2 pb-1'>spice to honey</p>
+						<h1 className='border-black font-bold font-serif text-white rounded-e-lg border-b-0 border-2 px-2'>Mom's Yummy</h1>
+						<p className='border-black font-serif text-center  text-white rounded-s-lg  border-t-3 border-2 px-2 pb-1'>spice to honey</p>
 					</a>
 				</div>
 				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-horizontal px-1 tex-lg font-bold">
+					<ul className="menu menu-horizontal px-1 text-lg font-bold">
 						{navOption}
 					</ul>
 				</div>
 				<div className="navbar-end">
-					<a className="btn">Button</a>
+					<li className="btn">Button</li>
 				</div>
 			</div>
 		</>

@@ -1,12 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import {
    createBrowserRouter,
 } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Menu from "../Pages/Menu/Menu/Menu";
-import Order from "../Pages/Menu/Order/Order/Order";
+import Order from "../Pages/Order/Order/Order";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
+import Secret from "../Pages/Shared/secret/Secret";
+import PrivateRoute from "./PrivateRoute";
+
 
 
 export const router = createBrowserRouter([
@@ -23,8 +27,20 @@ export const router = createBrowserRouter([
             element: <Menu />,
          },
          {
-            path: "/order",
+            path: "/order/:category",
             element: <Order />,
+         },
+         {
+            path: "/login",
+            element: <Login />,
+         },
+         {
+            path: "/signup",
+            element: <SignUp />,
+         },
+         {
+            path: "/secret",
+            element: <PrivateRoute><Secret /></PrivateRoute>
          }
       ]
    },

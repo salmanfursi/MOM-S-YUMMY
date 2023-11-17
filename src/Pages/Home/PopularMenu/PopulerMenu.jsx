@@ -5,7 +5,9 @@ import useMenu from '../../../Hooks/useMenu';
 
 const PopulerMenu = () => {
    const [menu]=useMenu()
-   const popularItem = menu.filter(item => item.category === "popular")
+   const popularItem = menu?.filter(item => item.category === "popular")
+   console.log(popularItem,'menu popular');
+  
 
    return (
       <section className='mb-12'>
@@ -14,10 +16,10 @@ const PopulerMenu = () => {
             subHeading={'Populer Items'}
          ></SectionTitle>
         <div className='grid md:grid-cols-2 gap-10'>
-        {
-            popularItem.map(item => <MenuItem
-               key={item._id}
-               item={item}
+        { popularItem &&
+            popularItem.map(data => <MenuItem
+               key={data._id}
+               data={data}
             ></MenuItem>)
          }
         </div>
