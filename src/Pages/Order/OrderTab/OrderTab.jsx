@@ -23,7 +23,7 @@ const OrderTab = ({ item }) => {
       const numPages = Math.ceil(item.length / cardsPerPage);
 // then ei Array.from({ length: numPages } built in method er maddome bolsi built in ekhane array.form tho er maddome bolsi tumi numpage er lengthdiya ekta array banao oi method array bana arki ar ai array function diya 0 index er sate 1 jog korse arki (_,index) => index + 1); 
       const newPages = Array.from({ length: numPages }, (_,index) => index + 1);
-      console.log(newPages,"page er number check");
+      //console.log(newPages,"page er number check");
       setPages(newPages);
     }
   }, [item]);
@@ -52,7 +52,7 @@ const OrderTab = ({ item }) => {
               // ekhane page onosare item er theke slice kore data dekhacce like paybe pizza tab e 13 ta thokon eita item re slice kore ei teqnique e 6 ta kore dekacce pore maybe 6 ta na howai 1 dekaise like skip ar limet er kajtai kore dise simply eite thanks.
                 .slice((page - 1) * cardsPerPage, page * cardsPerPage)
                 .map((dish) => (
-                  <FoodCard key={dish._id} data={dish}></FoodCard>
+                  <FoodCard key={dish._id} item={dish}></FoodCard>
                 ))
               }
             </div>

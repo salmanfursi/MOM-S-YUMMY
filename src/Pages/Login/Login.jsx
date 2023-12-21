@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/socialLogin/SocialLogin';
+import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
 
-  const [disabled , setDisabled]=useState(true)
+  // const [disabled , setDisabled]=useState(true)
 
-  const {signIn}=useContext(AuthContext)
+  const {signIn}=useAuth()
   const navigate =useNavigate()
   const location =useLocation()
   const from =location.state?.from?.pathname || "/"
 
 
 
-  useEffect(() => {
-    loadCaptchaEnginge(2);
-  }, []);
+  // useEffect(() => {
+  //   loadCaptchaEnginge(2);
+  // }, []);
 
   const handleLogin = (e) => {
     e.preventDefault()
     const form = e.target;
     const email = form.email.value
     const password = form.password.value
-    console.log(email, password );
+    //console.log(email, password );
 
     signIn(email, password )
     .then((result) => {
       const user = result.user;
-      console.log(user);
+      //console.log(user);
       Swal.fire({
         title: "user logged successfully",
         showClass: {
@@ -54,21 +54,21 @@ const Login = () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode,errorMessage);
+      //console.log(errorCode,errorMessage);
     });
   }
 
-  const handleValidateCaptcha = (e) => {
-    e.preventDefault()
-    const user_captcha_value = e.target.value
-    console.log(user_captcha_value);
-    if (validateCaptcha(user_captcha_value)) {
-      setDisabled(false)
-    }
-    else {
-      setDisabled(true)
-    }
-  }
+  // const handleValidateCaptcha = (e) => {
+  //   e.preventDefault()
+  //   const user_captcha_value = e.target.value
+  //   //console.log(user_captcha_value);
+  //   if (validateCaptcha(user_captcha_value)) {
+  //     setDisabled(false)
+  //   }
+  //   else {
+  //     setDisabled(true)
+  //   }
+  // }
   return (
     
     <div className="hero min-h-screen bg-base-200">
@@ -94,19 +94,22 @@ const Login = () => {
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered" required />
             </div>
-            <div className="form-control">
+
+             {/* <div className="form-control">
               <label className="label">
                 <LoadCanvasTemplate />
               </label>
 
               <input  onBlur={handleValidateCaptcha}  type="text" name='captcha' placeholder="type the text above" className="input input-bordered" required />
-             
-            </div>
-            <div className="form-control mt-6">
-              <input disabled={disabled} className='btn btn-primary' type="submit" value="Login" />
-            </div>
+ 
+            </div>  */}
+
+             <div className="form-control mt-6">
+              <input disabled={false} className='btn btn-primary' type="submit" value="Login" />
+            </div> 
           </form>
           <p className='px-8 pb-4'><small>new hare?</small><Link to={'/signup'}>create an account</Link></p>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

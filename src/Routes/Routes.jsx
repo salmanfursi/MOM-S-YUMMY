@@ -10,6 +10,14 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Secret from "../Pages/Shared/secret/Secret";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import Error from "../Pages/Shared/error/Error";
+import AddItem from "../Pages/Dashboard/AddItem/AddItem";
+import AdminRoute from "./AdminRoute";
+import ManageItem from "../Pages/Dashboard/ManageItem/ManageItem";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -17,6 +25,7 @@ export const router = createBrowserRouter([
    {
       path: "/",
       element: <Main />,
+      errorElement:<Error></Error>,
       children: [
          {
             path: "/",
@@ -44,6 +53,33 @@ export const router = createBrowserRouter([
          }
       ]
    },
+   {
+      path: "dashboard",
+      element: <PrivateRoute><Dashboard /></PrivateRoute>,
+      children: [
+         {
+            path: "mycart",
+            element: <MyCart />,
+         },
+         {
+            path: "payment",
+            element: <Payment />
+         },
+         {
+            path: "allusers",
+            element: <AllUsers />,
+         },
+         //admin route
+         {
+            path: "additam",
+            element: <AdminRoute><AddItem /></AdminRoute>,
+         },
+         {
+            path: "manageitems",
+            element: <AdminRoute><ManageItem /></AdminRoute>,
+         },
+      ] 
+   }
 ]);
 
 
