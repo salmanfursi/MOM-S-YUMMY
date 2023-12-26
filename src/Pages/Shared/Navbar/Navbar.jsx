@@ -45,7 +45,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="navbar bg-black text-white fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto">
+			<div className="navbar bg-black text-white fixed z-10 bg-opacity-30   mx-auto">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,7 +70,7 @@ const Navbar = () => {
 
 					<div className="avatar">
 						<div className="w-12 rounded-full ring ring-warning ring-offset-base-100 ring-offset-2">
-							<img src={user.name} />
+							<img src='https://img.freepik.com/free-photo/portrait-school-girl-doing-phone-call-park_23-2148199231.jpg' alt='tharin' />
 						</div>
 					</div>
 				</div>
