@@ -11,6 +11,7 @@ const SocialLogin = () => {
 
   const { googleSignin } = useAuth()
   const handleGoogleSignin = () => {
+    console.log('gogle signin');
     googleSignin()
       .then(result => {
         const loggedUser = result.user
@@ -41,7 +42,7 @@ const SocialLogin = () => {
             // if (data.insertedId > 1 ) {
             //   //console.log("from",from);
 
-            //   navigate(from, { replace: true })
+            //   navigate(from, { replace:true })
             // }
             navigate(from, { replace: true })
           })
@@ -50,8 +51,7 @@ const SocialLogin = () => {
   }
   return (
     <div>
-      <div className='divider'></div>
-      <div className='w-full my-4 text-center'>
+      <div className=' text-center'>
         <button onClick={handleGoogleSignin} className="btn btn-circle btn-outline">
           <FaGoogle />
         </button>

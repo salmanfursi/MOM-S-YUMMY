@@ -4,10 +4,11 @@ import useAxiosSecure from './useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 
 const useAdmin = () => {
-  const { user } = useAuth()
+  const { user,loading } = useAuth()
   const [axiosSecure] = useAxiosSecure()
   const { data:isAdmin,isLoading:isAdminLoading ,error}=useQuery({
     queryKey:['isAdmin',user?.email],
+    enabled:!loading, //ekhane bola hoi se jodi user pai (user privateroute e o loading hote pare abar login hote o ) (user pailei loading of hoye jai tai) user pele mane loading off hole ba not loading thakle queryfn ta start korbe thats it ,karon jokhon user paina thokon admin dashboard a loading hote thake. 
     queryFn: async () => {
  
       // console.log('data pass isAdmin ',isAdmin);

@@ -42,7 +42,7 @@ const AllUsers = () => {
   }
 
   return (
-    <div className='w-3/4'>
+    <div className='w-3/4 mx-auto'>
       <Helmet>
         <title>M-Y | All User</title>
       </Helmet>

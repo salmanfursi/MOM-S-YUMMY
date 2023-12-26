@@ -35,7 +35,7 @@ const FoodCard = ({ item }) => {
                      icon: "success",
                      title: "added on cart",
                      showConfirmButton: false,
-                     timer: 1500
+                     timer: 500
                   });
                }
             })

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const MyCart = () => {
   //cart er ager koma oi position er jonno age kitu refetch thake thai console e function ase tai positon reke , diye cart disi
-  const [refecth, cart] = useCart()
+  const [refetch, cart] = useCart()
 
   //how does reduce work reduce use for calculate the sum of separate object prices most likely working like looping
   const total = cart.reduce((sum, item) => item.price + sum, 0)
@@ -31,7 +31,7 @@ const MyCart = () => {
         .then(res =>res.json())
         .then(data =>{
           if(data.deletedCount > 0){
-            refecth()
+            refetch()
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -46,7 +46,7 @@ const MyCart = () => {
   }
 
   return (
-    <div className='w-full pl-4'> 
+    <div className='w-full mt-4 pl-4'> 
       <Helmet>
         <title>M-Y | My Cart</title>
       </Helmet>

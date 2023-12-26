@@ -5,9 +5,11 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from '../../../Hooks/useCart';
 import useAuth from '../../../Hooks/useAuth';
+import useAdmin from '../../../Hooks/useAdmin';
 
 const Navbar = () => {
 	const { user, logOut } = useAuth()
+	const [isAdmin]=useAdmin()
 	const [,cart]=useCart() //ekhane he koma , deya hoise eita use cart er return [refetch, cart]; return er mongodb er parameter er moto eita o position hisebe access kora lage like first e refecth tho first er jaiga khali then 2nd e cart disi thats it arekta kotha jekono nam diya destructure kora jabe but position khyal rakhte hobe.
 	
 	//console.log(cart," 11  navbar er daat a");
@@ -23,7 +25,7 @@ const Navbar = () => {
 		<li><Link to='/'>Home</Link></li>
 		<li><Link to='/menu'>Our Menu</Link></li>
 		<li><Link to='/order/salad'>Order</Link></li>
-		<li><Link to='/secret'>Secret</Link></li>
+		<li><Link to={ isAdmin ? 'dashboard/adminhome' : 'dashboard/userhome' }>Dashboard</Link></li>
 		<li>
 			<Link to='dashboard/mycart'>
 				<FaCartShopping />
