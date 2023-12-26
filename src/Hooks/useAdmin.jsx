@@ -11,7 +11,7 @@ const useAdmin = () => {
     enabled:!loading, //ekhane bola hoi se jodi user pai (user privateroute e o loading hote pare abar login hote o ) (user pailei loading of hoye jai tai) user pele mane loading off hole ba not loading thakle queryfn ta start korbe thats it ,karon jokhon user paina thokon admin dashboard a loading hote thake. 
     queryFn: async () => {
  
-      // console.log('data pass isAdmin ',isAdmin);
+      console.log('admin admin isAdmin ',isAdmin);
       // console.log(error);
         const response = await axiosSecure.get(`/users/admin/${user?.email}`);
         // console.log('useAdmin - Response:', response.data.admin);

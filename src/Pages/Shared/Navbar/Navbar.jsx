@@ -9,27 +9,27 @@ import useAdmin from '../../../Hooks/useAdmin';
 
 const Navbar = () => {
 	const { user, logOut } = useAuth()
-	const [isAdmin]=useAdmin()
-	const [,cart]=useCart() //ekhane he koma , deya hoise eita use cart er return [refetch, cart]; return er mongodb er parameter er moto eita o position hisebe access kora lage like first e refecth tho first er jaiga khali then 2nd e cart disi thats it arekta kotha jekono nam diya destructure kora jabe but position khyal rakhte hobe.
-	
+	const [isAdmin] = useAdmin()
+	const [, cart] = useCart() //ekhane he koma , deya hoise eita use cart er return [refetch, cart]; return er mongodb er parameter er moto eita o position hisebe access kora lage like first e refecth tho first er jaiga khali then 2nd e cart disi thats it arekta kotha jekono nam diya destructure kora jabe but position khyal rakhte hobe.
+
 	//console.log(cart," 11  navbar er daat a");
 	const handleLogOut = () => {
 		logOut()
-		.then(() => { })
-		.then(error => {
-			//console.log(error);
-		})
+			.then(() => { })
+			.then(error => {
+				//console.log(error);
+			})
 	}
 
 	const navOption = <div className=' flex flex-col md:flex-row'>
 		<li><Link to='/'>Home</Link></li>
 		<li><Link to='/menu'>Our Menu</Link></li>
 		<li><Link to='/order/salad'>Order</Link></li>
-		<li><Link to={ isAdmin ? 'dashboard/adminhome' : 'dashboard/userhome' }>Dashboard</Link></li>
+		<li><Link to={isAdmin ? 'dashboard/adminhome' : 'dashboard/userhome'}>Dashboard</Link></li>
 		<li>
 			<Link to='dashboard/mycart'>
 				<FaCartShopping />
-					<div className="badge badge-secondary">+{cart?.length || 0}</div>
+				<div className="badge badge-secondary">+{cart?.length || 0}</div>
 			</Link>
 		</li>
 
@@ -60,13 +60,19 @@ const Navbar = () => {
 						<p className='border-black font-serif text-center  text-white rounded-s-lg  border-t-3 border-2 px-2 pb-1'>spice to honey</p>
 					</a>
 				</div>
-				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-horizontal px-1 text-lg font-bold">
-						{navOption}
-					</ul>
-				</div>
 				<div className="navbar-end">
-					<li className="btn">Button</li>
+
+					<div className="navbar-center hidden lg:flex">
+						<ul className="menu menu-horizontal px-1 text-lg font-bold">
+							{navOption}
+						</ul>
+					</div>
+
+					<div className="avatar">
+						<div className="w-12 rounded-full ring ring-warning ring-offset-base-100 ring-offset-2">
+							<img src={user.name} />
+						</div>
+					</div>
 				</div>
 			</div>
 		</>

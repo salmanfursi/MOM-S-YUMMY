@@ -9,11 +9,15 @@ const PrivateRoute = ({children}) => {
 
   if(loading){
     return (
+      <>
+      <p className='text-3xl text-center text-red-600'>make sure about login !!!!</p>
       <div className="flex items-center justify-center h-screen">
         <img src={gif} alt="Loading" />
       </div>
+      </>
     )
   }
+  
   if(user){
     return children
   }

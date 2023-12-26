@@ -84,6 +84,7 @@ const CheckoutForm = ({ cart, price }) => {
         cart: cart?.length,
         cartItems: cart.map(item => item._id),
         menuItems: cart.map(item => item.menuItemId),
+        //menuItems er modde cart er id deya hose/menu er modde asol data/cart e order er data/payment er datar bitore menuitem er modde cart er id/tarpor cart delete aber new cart e add korle abar new id add hobe datar.
         status: "service pending",
         itemsNames: cart.map(item => item.name)
       }
@@ -111,6 +112,7 @@ const CheckoutForm = ({ cart, price }) => {
 
   return (
     <>
+    <p className='text-center pt-1 font-mono text-2xl'>test card:4242424242424242</p>
       <div className='w-2/3 mx-auto mt-10'>
         <form onSubmit={handleSubmit}>
           <CardElement

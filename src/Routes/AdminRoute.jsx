@@ -9,16 +9,18 @@ const AdminRoute = ({children}) => {
   const location =useLocation()
   const [isAdmin,isAdminLoading]=useAdmin();
 
-  if(loading && isAdminLoading){
+  if (loading || isAdminLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <img src={gif} alt="Loading" />
       </div>
-    )
+    );
   }
-  if(user && isAdmin){
+
+  if( user && isAdmin){
     return children
   }
+
   return <Navigate to='/' state={{from:location}} replace></Navigate>
 };
 
